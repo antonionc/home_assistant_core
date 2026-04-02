@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import logging
 
-import telnetlib  # pylint: disable=deprecated-module
+import telnetlib  # nosec # pylint: disable=deprecated-module
 import voluptuous as vol
 
 from homeassistant.components.media_player import (
@@ -158,7 +158,7 @@ class DenonDevice(MediaPlayerEntity):
 
     def telnet_command(self, command):
         """Establish a telnet connection and sends `command`."""
-        telnet = telnetlib.Telnet(self._host)
+        telnet = telnetlib.Telnet(self._host)  # nosec
         _LOGGER.debug("Sending: %s", command)
         telnet.write(command.encode("ASCII") + b"\r")
         telnet.read_very_eager()  # skip response
@@ -171,7 +171,7 @@ class DenonDevice(MediaPlayerEntity):
     def do_update(self) -> bool:
         """Get the latest details from the device, as boolean."""
         try:
-            telnet = telnetlib.Telnet(self._host)
+            telnet = telnetlib.Telnet(self._host)  # nosec
         except OSError:
             return False
 

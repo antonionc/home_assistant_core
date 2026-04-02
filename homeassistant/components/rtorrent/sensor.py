@@ -6,7 +6,10 @@ import logging
 from typing import cast
 import xmlrpc.client
 
+import defusedxml.xmlrpc
 import voluptuous as vol
+
+defusedxml.xmlrpc.monkey_patch()
 
 from homeassistant.components.sensor import (
     PLATFORM_SCHEMA as SENSOR_PLATFORM_SCHEMA,

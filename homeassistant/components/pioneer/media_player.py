@@ -5,7 +5,7 @@ from __future__ import annotations
 import logging
 from typing import Final
 
-import telnetlib  # pylint: disable=deprecated-module
+import telnetlib  # nosec # pylint: disable=deprecated-module
 import voluptuous as vol
 
 from homeassistant.components.media_player import (
@@ -112,7 +112,7 @@ class PioneerDevice(MediaPlayerEntity):
         """Establish a telnet connection and sends command."""
         try:
             try:
-                telnet = telnetlib.Telnet(self._host, self._port, self._timeout)
+                telnet = telnetlib.Telnet(self._host, self._port, self._timeout)  # nosec
             except OSError:
                 _LOGGER.warning("Pioneer %s refused connection", self._name)
                 return
@@ -129,7 +129,7 @@ class PioneerDevice(MediaPlayerEntity):
     def update_device(self) -> bool:
         """Get the latest details from the device."""
         try:
-            telnet = telnetlib.Telnet(self._host, self._port, self._timeout)
+            telnet = telnetlib.Telnet(self._host, self._port, self._timeout)  # nosec
         except OSError:
             _LOGGER.warning("Pioneer %s refused connection", self._name)
             return False

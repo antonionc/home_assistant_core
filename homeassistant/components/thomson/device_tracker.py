@@ -5,7 +5,7 @@ from __future__ import annotations
 import logging
 import re
 
-import telnetlib  # pylint: disable=deprecated-module
+import telnetlib  # nosec # pylint: disable=deprecated-module
 import voluptuous as vol
 
 from homeassistant.components.device_tracker import (
@@ -96,7 +96,7 @@ class ThomsonDeviceScanner(DeviceScanner):
     def get_thomson_data(self):
         """Retrieve data from THOMSON and return parsed result."""
         try:
-            telnet = telnetlib.Telnet(self.host)
+            telnet = telnetlib.Telnet(self.host)  # nosec
             telnet.read_until(b"Username : ")
             telnet.write((self.username + "\r\n").encode("ascii"))
             telnet.read_until(b"Password : ")

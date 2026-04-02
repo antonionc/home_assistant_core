@@ -8,7 +8,10 @@ from typing import Any, cast
 from xmlrpc.client import Fault
 
 from aiohttp.client_exceptions import ClientConnectionError, ClientResponseError
+import defusedxml.xmlrpc
 import voluptuous as vol
+
+defusedxml.xmlrpc.monkey_patch()
 
 from homeassistant.const import (
     CONF_HOST,

@@ -2177,4 +2177,6 @@ class CoreBackupReaderWriter(BackupReaderWriter):
 
 def _generate_backup_id(date: str, name: str) -> str:
     """Generate a backup ID."""
-    return hashlib.sha1(f"{date} - {name}".lower().encode()).hexdigest()[:8]
+    return hashlib.sha1(
+        f"{date} - {name}".lower().encode(), usedforsecurity=False
+    ).hexdigest()[:8]

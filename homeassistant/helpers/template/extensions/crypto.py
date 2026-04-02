@@ -46,12 +46,12 @@ class CryptoExtension(BaseTemplateExtension):
     @staticmethod
     def md5(value: str) -> str:
         """Generate md5 hash from a string."""
-        return hashlib.md5(value.encode()).hexdigest()
+        return hashlib.md5(value.encode(), usedforsecurity=False).hexdigest()
 
     @staticmethod
     def sha1(value: str) -> str:
         """Generate sha1 hash from a string."""
-        return hashlib.sha1(value.encode()).hexdigest()
+        return hashlib.sha1(value.encode(), usedforsecurity=False).hexdigest()
 
     @staticmethod
     def sha256(value: str) -> str:

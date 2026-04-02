@@ -5,7 +5,7 @@ from __future__ import annotations
 import logging
 from typing import Final
 
-import telnetlib  # pylint: disable=deprecated-module
+import telnetlib  # nosec # pylint: disable=deprecated-module
 import voluptuous as vol
 
 from homeassistant.components.device_tracker import (
@@ -84,7 +84,7 @@ class ActiontecDeviceScanner(DeviceScanner):
     def get_actiontec_data(self) -> list[Device] | None:
         """Retrieve data from Actiontec MI424WR and return parsed result."""
         try:
-            telnet = telnetlib.Telnet(self.host)
+            telnet = telnetlib.Telnet(self.host)  # nosec
             telnet.read_until(b"Username: ")
             telnet.write((f"{self.username}\n").encode("ascii"))
             telnet.read_until(b"Password: ")
