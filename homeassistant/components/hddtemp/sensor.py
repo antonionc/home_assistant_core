@@ -7,7 +7,7 @@ import logging
 import socket
 from typing import Any
 
-from telnetlib import Telnet  # pylint: disable=deprecated-module
+from telnetlib import Telnet  # nosec # pylint: disable=deprecated-module
 import voluptuous as vol
 
 from homeassistant.components.sensor import (
@@ -116,7 +116,7 @@ class HddTempData:
     def update(self):
         """Get the latest data from HDDTemp running as daemon."""
         try:
-            connection = Telnet(host=self.host, port=self.port, timeout=DEFAULT_TIMEOUT)
+            connection = Telnet(host=self.host, port=self.port, timeout=DEFAULT_TIMEOUT)  # nosec
             data = (
                 connection.read_all()
                 .decode("ascii")

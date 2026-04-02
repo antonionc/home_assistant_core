@@ -760,7 +760,7 @@ def _clamp_values(data: dict[str, Any]) -> None:
 @lru_cache(maxsize=1024)
 def _entity_unique_id(entity_id: str) -> str:
     """Return the emulated_hue unique id for the entity_id."""
-    unique_id = hashlib.md5(entity_id.encode()).hexdigest()
+    unique_id = hashlib.md5(entity_id.encode(), usedforsecurity=False).hexdigest()
     return (
         f"00:{unique_id[0:2]}:{unique_id[2:4]}:"
         f"{unique_id[4:6]}:{unique_id[6:8]}:{unique_id[8:10]}:"

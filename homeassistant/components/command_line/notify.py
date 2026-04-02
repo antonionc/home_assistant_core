@@ -49,7 +49,7 @@ class CommandLineNotificationService(BaseNotificationService):
 
         LOGGER.debug("Running with message: %s", message)
 
-        with subprocess.Popen(  # noqa: S602 # shell by design
+        with subprocess.Popen(  # noqa: S602 # nosec # shell by design
             command,
             universal_newlines=True,
             stdin=subprocess.PIPE,

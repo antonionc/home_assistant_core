@@ -6,7 +6,7 @@ from datetime import timedelta
 import logging
 from typing import Any
 
-import telnetlib  # pylint: disable=deprecated-module
+import telnetlib  # nosec # pylint: disable=deprecated-module
 import voluptuous as vol
 
 from homeassistant.components.switch import (
@@ -119,7 +119,7 @@ class TelnetSwitch(SwitchEntity):
 
     def _telnet_command(self, command: str) -> str | None:
         try:
-            telnet = telnetlib.Telnet(self._resource, self._port)
+            telnet = telnetlib.Telnet(self._resource, self._port)  # nosec
             telnet.write(command.encode("ASCII") + b"\r")
             response = telnet.read_until(b"\r", timeout=self._timeout)
         except OSError as error:

@@ -1,0 +1,506 @@
+{
+  "code": "7 \n8 import telnetlib  # pylint: disable=deprecated-module\n9 import voluptuous as vol\n",
+  "col_offset": 0,
+  "end_col_offset": 16,
+  "filename": "homeassistant/components/actiontec/device_tracker.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 319,
+    "link": "https://cwe.mitre.org/data/definitions/319.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "A telnet-related module is being imported.  Telnet is considered insecure. Use SSH or some other encrypted protocol.",
+  "line_number": 8,
+  "line_range": [
+    8
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b401-import-telnetlib",
+  "test_id": "B401",
+  "test_name": "blacklist"
+}
+{
+  "code": "86         try:\n87             telnet = telnetlib.Telnet(self.host)\n88             telnet.read_until(b\"Username: \")\n",
+  "col_offset": 21,
+  "end_col_offset": 48,
+  "filename": "homeassistant/components/actiontec/device_tracker.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 319,
+    "link": "https://cwe.mitre.org/data/definitions/319.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "Telnet-related functions are being called. Telnet is considered insecure. Use SSH or some other encrypted protocol.",
+  "line_number": 87,
+  "line_range": [
+    87
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b312-telnetlib",
+  "test_id": "B312",
+  "test_name": "blacklist"
+}
+{
+  "code": "2176     \"\"\"Generate a backup ID.\"\"\"\n2177     return hashlib.sha1(f\"{date} - {name}\".lower().encode()).hexdigest()[:8]\n",
+  "col_offset": 11,
+  "end_col_offset": 60,
+  "filename": "homeassistant/components/backup/manager.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 327,
+    "link": "https://cwe.mitre.org/data/definitions/327.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "Use of weak SHA1 hash for security. Consider usedforsecurity=False",
+  "line_number": 2177,
+  "line_range": [
+    2177
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b324_hashlib.html",
+  "test_id": "B324",
+  "test_name": "hashlib"
+}
+{
+  "code": "56             close_fds=False,  # required for posix_spawn\n57             shell=True,\n58         ) as proc:\n59             try:\n60                 proc.communicate(input=message, timeout=self._timeout)\n61                 if proc.returncode != 0:\n62                     _LOGGER.error(\n63                         \"Command failed (with return code %s): %s\",\n64                         proc.returncode,\n",
+  "col_offset": 13,
+  "end_col_offset": 9,
+  "filename": "homeassistant/components/command_line/notify.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 78,
+    "link": "https://cwe.mitre.org/data/definitions/78.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "subprocess call with shell=True identified, security issue.",
+  "line_number": 57,
+  "line_range": [
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+  "test_id": "B602",
+  "test_name": "subprocess_popen_with_shell_equals_true"
+}
+{
+  "code": "6 \n7 import telnetlib  # pylint: disable=deprecated-module\n8 import voluptuous as vol\n",
+  "col_offset": 0,
+  "end_col_offset": 16,
+  "filename": "homeassistant/components/denon/media_player.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 319,
+    "link": "https://cwe.mitre.org/data/definitions/319.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "A telnet-related module is being imported.  Telnet is considered insecure. Use SSH or some other encrypted protocol.",
+  "line_number": 7,
+  "line_range": [
+    7
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b401-import-telnetlib",
+  "test_id": "B401",
+  "test_name": "blacklist"
+}
+{
+  "code": "160         \"\"\"Establish a telnet connection and sends `command`.\"\"\"\n161         telnet = telnetlib.Telnet(self._host)\n162         _LOGGER.debug(\"Sending: %s\", command)\n",
+  "col_offset": 17,
+  "end_col_offset": 45,
+  "filename": "homeassistant/components/denon/media_player.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 319,
+    "link": "https://cwe.mitre.org/data/definitions/319.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "Telnet-related functions are being called. Telnet is considered insecure. Use SSH or some other encrypted protocol.",
+  "line_number": 161,
+  "line_range": [
+    161
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b312-telnetlib",
+  "test_id": "B312",
+  "test_name": "blacklist"
+}
+{
+  "code": "173         try:\n174             telnet = telnetlib.Telnet(self._host)\n175         except OSError:\n",
+  "col_offset": 21,
+  "end_col_offset": 49,
+  "filename": "homeassistant/components/denon/media_player.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 319,
+    "link": "https://cwe.mitre.org/data/definitions/319.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "Telnet-related functions are being called. Telnet is considered insecure. Use SSH or some other encrypted protocol.",
+  "line_number": 174,
+  "line_range": [
+    174
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b312-telnetlib",
+  "test_id": "B312",
+  "test_name": "blacklist"
+}
+{
+  "code": "762     \"\"\"Return the emulated_hue unique id for the entity_id.\"\"\"\n763     unique_id = hashlib.md5(entity_id.encode()).hexdigest()\n764     return (\n",
+  "col_offset": 16,
+  "end_col_offset": 47,
+  "filename": "homeassistant/components/emulated_hue/hue_api.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 327,
+    "link": "https://cwe.mitre.org/data/definitions/327.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "Use of weak MD5 hash for security. Consider usedforsecurity=False",
+  "line_number": 763,
+  "line_range": [
+    763
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b324_hashlib.html",
+  "test_id": "B324",
+  "test_name": "hashlib"
+}
+{
+  "code": "9 \n10 from telnetlib import Telnet  # pylint: disable=deprecated-module\n11 import voluptuous as vol\n",
+  "col_offset": 0,
+  "end_col_offset": 28,
+  "filename": "homeassistant/components/hddtemp/sensor.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 319,
+    "link": "https://cwe.mitre.org/data/definitions/319.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "A telnet-related module is being imported.  Telnet is considered insecure. Use SSH or some other encrypted protocol.",
+  "line_number": 10,
+  "line_range": [
+    10
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b401-import-telnetlib",
+  "test_id": "B401",
+  "test_name": "blacklist"
+}
+{
+  "code": "118         try:\n119             connection = Telnet(host=self.host, port=self.port, timeout=DEFAULT_TIMEOUT)\n120             data = (\n",
+  "col_offset": 25,
+  "end_col_offset": 88,
+  "filename": "homeassistant/components/hddtemp/sensor.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 319,
+    "link": "https://cwe.mitre.org/data/definitions/319.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "Telnet-related functions are being called. Telnet is considered insecure. Use SSH or some other encrypted protocol.",
+  "line_number": 119,
+  "line_range": [
+    119
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b312-telnetlib",
+  "test_id": "B312",
+  "test_name": "blacklist"
+}
+{
+  "code": "7 \n8 import telnetlib  # pylint: disable=deprecated-module\n9 import voluptuous as vol\n",
+  "col_offset": 0,
+  "end_col_offset": 16,
+  "filename": "homeassistant/components/pioneer/media_player.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 319,
+    "link": "https://cwe.mitre.org/data/definitions/319.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "A telnet-related module is being imported.  Telnet is considered insecure. Use SSH or some other encrypted protocol.",
+  "line_number": 8,
+  "line_range": [
+    8
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b401-import-telnetlib",
+  "test_id": "B401",
+  "test_name": "blacklist"
+}
+{
+  "code": "114             try:\n115                 telnet = telnetlib.Telnet(self._host, self._port, self._timeout)\n116             except OSError:\n",
+  "col_offset": 25,
+  "end_col_offset": 80,
+  "filename": "homeassistant/components/pioneer/media_player.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 319,
+    "link": "https://cwe.mitre.org/data/definitions/319.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "Telnet-related functions are being called. Telnet is considered insecure. Use SSH or some other encrypted protocol.",
+  "line_number": 115,
+  "line_range": [
+    115
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b312-telnetlib",
+  "test_id": "B312",
+  "test_name": "blacklist"
+}
+{
+  "code": "131         try:\n132             telnet = telnetlib.Telnet(self._host, self._port, self._timeout)\n133         except OSError:\n",
+  "col_offset": 21,
+  "end_col_offset": 76,
+  "filename": "homeassistant/components/pioneer/media_player.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 319,
+    "link": "https://cwe.mitre.org/data/definitions/319.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "Telnet-related functions are being called. Telnet is considered insecure. Use SSH or some other encrypted protocol.",
+  "line_number": 132,
+  "line_range": [
+    132
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b312-telnetlib",
+  "test_id": "B312",
+  "test_name": "blacklist"
+}
+{
+  "code": "6 from typing import cast\n7 import xmlrpc.client\n8 \n",
+  "col_offset": 0,
+  "end_col_offset": 20,
+  "filename": "homeassistant/components/rtorrent/sensor.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 20,
+    "link": "https://cwe.mitre.org/data/definitions/20.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "Using xmlrpc.client to parse untrusted XML data is known to be vulnerable to XML attacks. Use defusedxml.xmlrpc.monkey_patch() function to monkey-patch xmlrpclib and mitigate XML vulnerabilities.",
+  "line_number": 7,
+  "line_range": [
+    7
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b411-import-xmlrpclib",
+  "test_id": "B411",
+  "test_name": "blacklist"
+}
+{
+  "code": "6 from typing import Any\n7 import xmlrpc.client\n8 \n",
+  "col_offset": 0,
+  "end_col_offset": 20,
+  "filename": "homeassistant/components/supervisord/sensor.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 20,
+    "link": "https://cwe.mitre.org/data/definitions/20.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "Using xmlrpc.client to parse untrusted XML data is known to be vulnerable to XML attacks. Use defusedxml.xmlrpc.monkey_patch() function to monkey-patch xmlrpclib and mitigate XML vulnerabilities.",
+  "line_number": 7,
+  "line_range": [
+    7
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b411-import-xmlrpclib",
+  "test_id": "B411",
+  "test_name": "blacklist"
+}
+{
+  "code": "8 \n9 import telnetlib  # pylint: disable=deprecated-module\n10 import voluptuous as vol\n",
+  "col_offset": 0,
+  "end_col_offset": 16,
+  "filename": "homeassistant/components/telnet/switch.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 319,
+    "link": "https://cwe.mitre.org/data/definitions/319.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "A telnet-related module is being imported.  Telnet is considered insecure. Use SSH or some other encrypted protocol.",
+  "line_number": 9,
+  "line_range": [
+    9
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b401-import-telnetlib",
+  "test_id": "B401",
+  "test_name": "blacklist"
+}
+{
+  "code": "121         try:\n122             telnet = telnetlib.Telnet(self._resource, self._port)\n123             telnet.write(command.encode(\"ASCII\") + b\"\\r\")\n",
+  "col_offset": 21,
+  "end_col_offset": 65,
+  "filename": "homeassistant/components/telnet/switch.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 319,
+    "link": "https://cwe.mitre.org/data/definitions/319.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "Telnet-related functions are being called. Telnet is considered insecure. Use SSH or some other encrypted protocol.",
+  "line_number": 122,
+  "line_range": [
+    122
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b312-telnetlib",
+  "test_id": "B312",
+  "test_name": "blacklist"
+}
+{
+  "code": "273 \n274     issue_id = f\"{LEGACY_TEMPLATE_DEPRECATION_KEY}_{domain}_{breadcrumb}_{hashlib.md5(','.join(config.keys()).encode()).hexdigest()}\"\n275 \n",
+  "col_offset": 74,
+  "end_col_offset": 119,
+  "filename": "homeassistant/components/template/helpers.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 327,
+    "link": "https://cwe.mitre.org/data/definitions/327.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "Use of weak MD5 hash for security. Consider usedforsecurity=False",
+  "line_number": 274,
+  "line_range": [
+    274
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b324_hashlib.html",
+  "test_id": "B324",
+  "test_name": "hashlib"
+}
+{
+  "code": "7 \n8 import telnetlib  # pylint: disable=deprecated-module\n9 import voluptuous as vol\n",
+  "col_offset": 0,
+  "end_col_offset": 16,
+  "filename": "homeassistant/components/thomson/device_tracker.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 319,
+    "link": "https://cwe.mitre.org/data/definitions/319.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "A telnet-related module is being imported.  Telnet is considered insecure. Use SSH or some other encrypted protocol.",
+  "line_number": 8,
+  "line_range": [
+    8
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b401-import-telnetlib",
+  "test_id": "B401",
+  "test_name": "blacklist"
+}
+{
+  "code": "98         try:\n99             telnet = telnetlib.Telnet(self.host)\n100             telnet.read_until(b\"Username : \")\n",
+  "col_offset": 21,
+  "end_col_offset": 48,
+  "filename": "homeassistant/components/thomson/device_tracker.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 319,
+    "link": "https://cwe.mitre.org/data/definitions/319.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "Telnet-related functions are being called. Telnet is considered insecure. Use SSH or some other encrypted protocol.",
+  "line_number": 99,
+  "line_range": [
+    99
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b312-telnetlib",
+  "test_id": "B312",
+  "test_name": "blacklist"
+}
+{
+  "code": "7 from typing import Any, cast\n8 from xmlrpc.client import Fault\n9 \n",
+  "col_offset": 0,
+  "end_col_offset": 31,
+  "filename": "homeassistant/components/webmin/config_flow.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 20,
+    "link": "https://cwe.mitre.org/data/definitions/20.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "Using Fault to parse untrusted XML data is known to be vulnerable to XML attacks. Use defusedxml.xmlrpc.monkey_patch() function to monkey-patch xmlrpclib and mitigate XML vulnerabilities.",
+  "line_number": 8,
+  "line_range": [
+    8
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b411-import-xmlrpclib",
+  "test_id": "B411",
+  "test_name": "blacklist"
+}
+{
+  "code": "4 \n5 from ftplib import FTP, error_perm\n6 import logging\n",
+  "col_offset": 0,
+  "end_col_offset": 34,
+  "filename": "homeassistant/components/xiaomi/camera.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 319,
+    "link": "https://cwe.mitre.org/data/definitions/319.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "A FTP-related module is being imported.  FTP is considered insecure. Use SSH/SFTP/SCP or some other encrypted protocol.",
+  "line_number": 5,
+  "line_range": [
+    5
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b402-import-ftplib",
+  "test_id": "B402",
+  "test_name": "blacklist"
+}
+{
+  "code": "106 \n107         ftp = FTP(host)\n108         try:\n",
+  "col_offset": 14,
+  "end_col_offset": 23,
+  "filename": "homeassistant/components/xiaomi/camera.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 319,
+    "link": "https://cwe.mitre.org/data/definitions/319.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "FTP-related functions are being called. FTP is considered insecure. Use SSH/SFTP/SCP or some other encrypted protocol.",
+  "line_number": 107,
+  "line_range": [
+    107
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b321-ftplib",
+  "test_id": "B321",
+  "test_name": "blacklist"
+}
+{
+  "code": "48         \"\"\"Generate md5 hash from a string.\"\"\"\n49         return hashlib.md5(value.encode()).hexdigest()\n50 \n",
+  "col_offset": 15,
+  "end_col_offset": 42,
+  "filename": "homeassistant/helpers/template/extensions/crypto.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 327,
+    "link": "https://cwe.mitre.org/data/definitions/327.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "Use of weak MD5 hash for security. Consider usedforsecurity=False",
+  "line_number": 49,
+  "line_range": [
+    49
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b324_hashlib.html",
+  "test_id": "B324",
+  "test_name": "hashlib"
+}
+{
+  "code": "53         \"\"\"Generate sha1 hash from a string.\"\"\"\n54         return hashlib.sha1(value.encode()).hexdigest()\n55 \n",
+  "col_offset": 15,
+  "end_col_offset": 43,
+  "filename": "homeassistant/helpers/template/extensions/crypto.py",
+  "issue_confidence": "HIGH",
+  "issue_cwe": {
+    "id": 327,
+    "link": "https://cwe.mitre.org/data/definitions/327.html"
+  },
+  "issue_severity": "HIGH",
+  "issue_text": "Use of weak SHA1 hash for security. Consider usedforsecurity=False",
+  "line_number": 54,
+  "line_range": [
+    54
+  ],
+  "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b324_hashlib.html",
+  "test_id": "B324",
+  "test_name": "hashlib"
+}

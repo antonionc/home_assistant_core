@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from ftplib import FTP, error_perm
+from ftplib import FTP, error_perm  # nosec
 import logging
 
 from haffmpeg.camera import CameraMjpeg
@@ -104,7 +104,7 @@ class XiaomiCamera(Camera):
     def get_latest_video_url(self, host):
         """Retrieve the latest video file from the Xiaomi Camera FTP server."""
 
-        ftp = FTP(host)
+        ftp = FTP(host)  # nosec
         try:
             ftp.login(self.user, self.passwd)
         except error_perm as exc:
